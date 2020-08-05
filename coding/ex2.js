@@ -50,8 +50,10 @@ class Symmetry {
       } else {
         if (this.stack.data[this.stack.tail - 1] !== character) {
           this.stack.push(character);
-        } else if (i >= midIndex) {
+        } else if (i >= midIndex && this.stack.data[this.stack.tail - 1] === character) {
           this.stack.pop();
+        } else {
+          // TODO: nothing
         }
       }
     }
