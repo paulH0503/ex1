@@ -50,23 +50,23 @@ var chainTest = [
   // case: null, undefine, false, '', NaN
   {
     chain: null,
-    expect: false
+    expect: "Input must be string"
   },
   {
     chain: undefined,
-    expect: false
+    expect: "Input must be string"
   },
   {
     chain: false,
-    expect: false
+    expect: "Input must be string"
   },
   {
     chain: '',
-    expect: true
+    expect: true,
   },
   {
     chain: NaN,
-    expect: true
+    expect: "Input must be string"
   },
 ]
 
@@ -74,7 +74,7 @@ chainTest.forEach(item => {
   if (typeof item.chain !== 'string') {
     expect(() => {
       new Symmetry(item.chain).isSymmetry
-    }).toThrow("Input must be string")
+    }).toThrow(item.expect)
   } else {
     test(item.chain, () => {
         expect(new Symmetry(item.chain).isSymmetry).toBe(item.expect);
