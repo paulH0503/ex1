@@ -18,6 +18,10 @@ class Stack {
       return v;
   }
 
+  get isEmpty() {
+    return this.tail === 0 ? true : false;
+  }
+
   push(value) {
       this.array.push(value);
       this.updateTail();
@@ -57,7 +61,7 @@ class Symmetry {
         }
       }
     }
-    return this.stack.data.length === 0 ? true : false;
+    return this.stack.isEmpty ? true : false;
   } 
 }
 
